@@ -16,6 +16,8 @@ services:
       - ./requirements/nginx/conf/:/etc/nginx/http.d/
       - ./requirements/nginx/tools:/etc/nginx/ssl/
       - wp-volume:/var/www/
+    env_file:
+      - .env
     restart: always
 
   mariadb:
@@ -34,6 +36,8 @@ services:
       - inception
     volumes:
       - db-volume:/var/lib/mysql
+    env_file:
+      - .env
     restart: always
 
   wordpress:
@@ -51,6 +55,8 @@ services:
       - inception
     volumes:
       - wp-volume:/var/www/
+    env_file:
+      - .env
     restart: always
 
 volumes:
